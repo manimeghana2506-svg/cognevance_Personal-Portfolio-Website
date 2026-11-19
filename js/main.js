@@ -63,18 +63,18 @@ function initTypingEffect() {
   if (!typingElement) return;
 
   const roles = [
-    'scalable web applications.',
-    'responsive modern user interfaces.',
-    'full-stack cloud software.',
-    'clean, accessible user experiences.'
+    'Software Developer.',
+    'Problem Solver (C++ & Python).',
+    'Full-Stack Web Developer.',
+    'B.Tech Student @ NIAT.'
   ];
 
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  const typingSpeed = 90;
-  const deletingSpeed = 45;
-  const pauseTime = 1800;
+  const typingSpeed = 80;
+  const deletingSpeed = 40;
+  const pauseTime = 1600;
 
   function type() {
     const currentRole = roles[roleIndex];
@@ -185,6 +185,14 @@ function initScrollSpy() {
 function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
 
+  // Immediately reveal elements in viewport on page load
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= (window.innerHeight || document.documentElement.clientHeight)) {
+      el.classList.add('revealed');
+    }
+  });
+
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -193,11 +201,15 @@ function initScrollReveal() {
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px 50px 0px'
   });
 
-  reveals.forEach(el => revealObserver.observe(el));
+  reveals.forEach(el => {
+    if (!el.classList.contains('revealed')) {
+      revealObserver.observe(el);
+    }
+  });
 }
 
 /* --------------------------------------------------------------------------
@@ -324,163 +336,158 @@ function initProjectsFilter() {
    9. PROJECT DETAILS MODAL
    -------------------------------------------------------------------------- */
 const projectsData = {
-  devflow: {
-    title: 'DevFlow – Developer Knowledge & Community Platform',
-    category: 'Full-Stack',
-    desc: 'DevFlow is a modern stack overflow alternative and tech blogging ecosystem designed for developer collaboration. It enables engineers to share technical questions, format code blocks, upvote peer solutions, and publish articles with real-time markdown preview.',
+  algovisual: {
+    title: 'AlgoVisual – Interactive Algorithm & Data Structure Visualizer',
+    category: 'C++ & JavaScript',
+    desc: 'AlgoVisual is an educational interactive web platform designed to demonstrate how fundamental data structures and algorithms execute step-by-step. It provides controls to step forward, pause, change execution speeds, and inspect variable states.',
     features: [
-      'Full-stack architecture using Next.js, Express, MongoDB, and TypeScript',
-      'Secure user authentication with JWT, OAuth, and granular role permissions',
-      'Advanced search indexing by tags, author, and keyword queries',
-      'Interactive syntax-highlighted code editor with copy and live run simulations',
-      'Responsive design with light/dark theme toggle and mobile optimizations'
+      'Visualizations for QuickSort, MergeSort, BubbleSort, and InsertionSort with bar comparisons',
+      'Pathfinding grid visualizer executing Dijkstra, Breadth-First Search (BFS), and Depth-First Search (DFS)',
+      'Algorithmic time complexity and space complexity metrics rendered dynamically',
+      'HTML5 Canvas rendering engine with fluid 60fps animations and custom input array generation'
     ],
-    tags: ['React', 'Next.js', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS', 'TypeScript'],
+    tags: ['C++ Logic', 'JavaScript (ES6+)', 'HTML5 Canvas', 'CSS3 Grid', 'Algorithms'],
     mockupHtml: `
       <div class="project-preview-mockup mockup-gradient-1" style="height: 100%;">
         <div class="mockup-bar">
           <span class="mock-dot red"></span>
           <span class="mock-dot yellow"></span>
           <span class="mock-dot green"></span>
-          <span class="mockup-address">https://devflow.app/questions/react-hooks</span>
+          <span class="mockup-address">https://algovisual.app/visualizer/quicksort</span>
         </div>
         <div class="mockup-content">
-          <span class="mock-badge">🚀 Active Q&A Community</span>
-          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">Over 12,000 active monthly developer discussions and code shares.</p>
+          <span class="mock-badge">📊 Sorting Visualizer</span>
+          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">QuickSort O(N log N) • Color-coded pointer tracking • Step-by-step debug</p>
         </div>
       </div>
     `
   },
-  cloudpulse: {
-    title: 'CloudPulse – Real-Time Infrastructure Monitoring Dashboard',
-    category: 'Frontend & SaaS',
-    desc: 'CloudPulse provides DevOps teams with instant observability across distributed cloud infrastructure, tracking server CPU metrics, memory spikes, container health, and latency anomalies in real-time.',
+  campusconnect: {
+    title: 'CampusConnect – NIAT Student Collaboration Portal',
+    category: 'Full-Stack Web',
+    desc: 'CampusConnect is a campus collaboration portal developed specifically for engineering students at NIAT. It provides a centralized hub to share lecture notes, form study groups, post club updates, and coordinate hackathon teams.',
     features: [
-      'WebSocket continuous streaming for microsecond live metrics updates',
-      'Interactive Chart.js visualizations with customizable date range filters',
-      'Automated threshold alerts with Slack and webhook integrations',
-      'Dynamic CSS Grid multi-dashboard layout supporting custom widget drag & resize',
-      'Comprehensive export to PDF and CSV reports'
+      'User authentication and profile management for college students and club leads',
+      'Subject-wise resource repository with PDF upload, tagging, and search indexing',
+      'Discussion boards with threaded comments, upvoting, and instant peer notifications',
+      'Responsive design styled with modern CSS and Tailwind for mobile access across campus'
     ],
-    tags: ['JavaScript', 'React', 'Chart.js', 'WebSockets', 'CSS Grid', 'Tailwind CSS'],
+    tags: ['Node.js', 'Express', 'MongoDB', 'HTML5', 'CSS3', 'REST API'],
     mockupHtml: `
       <div class="project-preview-mockup mockup-gradient-2" style="height: 100%;">
         <div class="mockup-bar">
           <span class="mock-dot red"></span>
           <span class="mock-dot yellow"></span>
           <span class="mock-dot green"></span>
-          <span class="mockup-address">https://cloudpulse.io/dashboard</span>
+          <span class="mockup-address">https://campusconnect-niat.edu/feed</span>
         </div>
         <div class="mockup-content">
-          <span class="mock-badge">📊 Cloud Observability</span>
-          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">99.98% Uptime SLA • Latency Tracking & Auto-Alerts</p>
+          <span class="mock-badge">🎓 NIAT Student Hub</span>
+          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">Notes Sharing • Hackathon Teams • Peer Discussions</p>
         </div>
       </div>
     `
   },
-  shopsphere: {
-    title: 'ShopSphere – Modern Responsive E-Commerce Platform',
-    category: 'Full-Stack & E-Commerce',
-    desc: 'ShopSphere is a high-converting, lightning-fast e-commerce storefront featuring multi-currency checkout, dynamic search filters, wishlists, and seamless state persistence.',
+  devportfolio: {
+    title: 'Responsive Personal Portfolio Website',
+    category: 'Frontend & UI/UX',
+    desc: 'A modern, responsive personal portfolio website engineered from scratch using semantic HTML5, modern CSS3 variables and animations, and vanilla JavaScript. Features a dark/light theme switcher, mobile drawer, and interactive project modals.',
     features: [
-      'Client-side cart state management with real-time tax and shipping calculations',
-      'Instant faceted search and category filtering with debounce optimizations',
-      'Integrated Stripe Checkout simulation with receipt generation',
-      'Responsive mobile-first layout with smooth touch swipe product carousels',
-      'Optimized Lighthouse audit scores: 98 Performance, 100 Accessibility'
+      'Fully responsive fluid layouts optimized for mobile, tablet, and desktop screens',
+      'Persistent dark/light theme toggle with LocalStorage preference save',
+      'Accessible navigation with scrollspy active indicator and keyboard navigation',
+      'Zero external frontend framework dependencies for sub-second page loads and 100 Lighthouse score'
     ],
-    tags: ['JavaScript', 'HTML5', 'SCSS', 'REST API', 'Stripe SDK', 'LocalStorage'],
+    tags: ['HTML5', 'CSS3 Variables', 'Vanilla JavaScript', 'GitHub Pages', 'Responsive Design'],
     mockupHtml: `
       <div class="project-preview-mockup mockup-gradient-3" style="height: 100%;">
         <div class="mockup-bar">
           <span class="mock-dot red"></span>
           <span class="mock-dot yellow"></span>
           <span class="mock-dot green"></span>
-          <span class="mockup-address">https://shopsphere.store/products</span>
+          <span class="mockup-address">https://manimeghana.dev</span>
         </div>
         <div class="mockup-content">
-          <span class="mock-badge">🛍️ High-Conversion Checkout</span>
-          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">Multi-currency • Instant cart sync • Smooth checkout</p>
+          <span class="mock-badge">⚡ Pure Vanilla Web</span>
+          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">100% Responsive • Smooth CSS Animations • Zero Bloat</p>
         </div>
       </div>
     `
   },
-  novapay: {
-    title: 'NovaPay – Mobile-First Digital Banking & Wallet UI',
-    category: 'UI/UX & Mobile',
-    desc: 'NovaPay is a fintech design system and progressive web application crafted for modern digital wallets, peer-to-peer split payments, and financial goal tracking.',
+  smartlibrary: {
+    title: 'SmartLibrary – Database Management & Book Tracking System',
+    category: 'Python & DBMS',
+    desc: 'SmartLibrary is a comprehensive library database management application written in Python with SQLite/MySQL. It models relational tables with primary/foreign keys to manage book inventories, student member records, checkouts, and fine tracking.',
     features: [
-      'Engineered in Figma with atomic design principles and translated to semantic web code',
-      'Haptic feedback and 60fps micro-animations using CSS transitions',
-      'Biometric authentication UX and virtual card masking preview',
-      'Accessible color contrast exceeding WCAG AAA compliance standards',
-      'Installable Progressive Web App (PWA) with offline balance caching'
+      'Normalized relational database schema (3NF) ensuring data integrity and fast queries',
+      'Full CRUD operations for managing book inventory, student memberships, and loan statuses',
+      'Automated fine calculation algorithm based on overdue borrow dates',
+      'Interactive command-line and web dashboard interface with search by ISBN, Title, and Author'
     ],
-    tags: ['UI/UX', 'Figma', 'CSS Animations', 'PWA Ready', 'Responsive Design'],
+    tags: ['Python', 'SQL & SQLite', 'DBMS Concepts', 'Normalization', 'CRUD'],
     mockupHtml: `
       <div class="project-preview-mockup mockup-gradient-4" style="height: 100%;">
         <div class="mockup-bar">
           <span class="mock-dot red"></span>
           <span class="mock-dot yellow"></span>
           <span class="mock-dot green"></span>
-          <span class="mockup-address">https://novapay.design/wallet</span>
+          <span class="mockup-address">https://smartlibrary.local/admin</span>
         </div>
         <div class="mockup-content">
-          <span class="mock-badge">💳 Next-Gen Fintech</span>
-          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">Secure Virtual Card • Split Bills • Instant Crypto & Fiat</p>
+          <span class="mock-badge">📚 Relational DBMS</span>
+          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">SQLite • Normalized Schema • Automated Overdue Fine System</p>
         </div>
       </div>
     `
   },
-  taskmatrix: {
-    title: 'TaskMatrix – Kanban Project Management Workspace',
-    category: 'Productivity & Frontend',
-    desc: 'TaskMatrix streamlines agile workflow management with interactive Kanban boards, sprint backlogs, drag-and-drop task sorting, and persistent browser storage.',
+  taskpulse: {
+    title: 'TaskPulse – Student Productivity & Goal Tracker',
+    category: 'JavaScript & Productivity',
+    desc: 'TaskPulse is an intuitive web-based productivity workspace featuring customizable Kanban task boards, semester goal milestones, and an integrated Pomodoro study timer designed to help students stay organized.',
     features: [
-      'Smooth HTML5 native drag-and-drop mechanics with tactile visual feedback',
-      'Subtask checklists, color-coded priority labels, and due date countdowns',
-      'Offline persistence using IndexedDB and LocalStorage synchronization',
-      'Keyboard accessibility shortcuts (J/K navigation, Enter to open, ESC to close)',
-      'Export and import board configurations via JSON files'
+      'HTML5 drag-and-drop task workflow with customizable board categories (To-Do, In Progress, Completed)',
+      'Built-in customizable 25/5 minute Pomodoro focus timer with audio chimes and study streak tracker',
+      'Persistent state saved in browser LocalStorage with zero server dependencies',
+      'Responsive design supporting mobile touch and keyboard shortcuts for quick task entry'
     ],
-    tags: ['JavaScript', 'HTML Drag & Drop', 'CSS Flex/Grid', 'IndexedDB'],
+    tags: ['JavaScript (ES6+)', 'CSS Grid & Flexbox', 'LocalStorage', 'Pomodoro Timer'],
     mockupHtml: `
       <div class="project-preview-mockup mockup-gradient-5" style="height: 100%;">
         <div class="mockup-bar">
           <span class="mock-dot red"></span>
           <span class="mock-dot yellow"></span>
           <span class="mock-dot green"></span>
-          <span class="mockup-address">https://taskmatrix.dev/board/sprint-12</span>
+          <span class="mockup-address">https://taskpulse.me/board</span>
         </div>
         <div class="mockup-content">
-          <span class="mock-badge">📋 Agile Sprint Boards</span>
-          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">Tactile drag-and-drop • Keyboard accessible • Instant save</p>
+          <span class="mock-badge">📋 Kanban Workspace</span>
+          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">Drag-and-Drop • Pomodoro Timer • Offline Persistence</p>
         </div>
       </div>
     `
   },
-  ecotracker: {
-    title: 'EcoTracker – Carbon Footprint Calculator & Tracker',
-    category: 'Green Tech & Full-Stack',
-    desc: 'EcoTracker is a sustainability web tool empowering individuals and organizations to calculate, visualize, and diminish their daily carbon footprint through customized tips.',
+  weathercast: {
+    title: 'WeatherCast – Real-Time Global Forecast Web App',
+    category: 'API Integration',
+    desc: 'WeatherCast connects to global meteorological REST APIs to deliver live weather updates, temperature charts, humidity, wind velocity, and 5-day weather forecasts for cities worldwide, including Hyderabad.',
     features: [
-      'Interactive multi-step questionnaire for travel, dietary, and energy habits',
-      'Custom SVG dynamic chart visualizations representing CO2 equivalents',
-      'Personalized sustainability roadmap with gamified milestone badges',
-      'Community challenges and carbon offset partnership integrations'
+      'Asynchronous data fetching with ES6 Promises and graceful error handling',
+      'HTML5 Geolocation API integration to detect the user’s local weather automatically',
+      'Dynamic weather cards that shift gradients based on day/night and weather conditions',
+      'Search auto-complete with debounce optimization to reduce unnecessary API requests'
     ],
-    tags: ['React', 'Node.js', 'SVG Charts', 'REST API', 'CSS Grid'],
+    tags: ['JavaScript Fetch', 'RESTful API', 'CSS Grid', 'Geolocation API', 'Responsive'],
     mockupHtml: `
       <div class="project-preview-mockup mockup-gradient-6" style="height: 100%;">
         <div class="mockup-bar">
           <span class="mock-dot red"></span>
           <span class="mock-dot yellow"></span>
           <span class="mock-dot green"></span>
-          <span class="mockup-address">https://ecotracker.earth/my-impact</span>
+          <span class="mockup-address">https://weathercast.live/hyderabad</span>
         </div>
         <div class="mockup-content">
-          <span class="mock-badge">🌱 Environmental Intelligence</span>
-          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">Track daily impact • Reduce emissions by up to 35%</p>
+          <span class="mock-badge">⛅ Meteorological API</span>
+          <p style="color: #cbd5e1; font-size: 0.85rem; text-align: center;">Live Hyderabad Conditions • 5-Day Forecast • Dynamic UI Themes</p>
         </div>
       </div>
     `
@@ -685,12 +692,7 @@ function initResumeDownload() {
   const resumeBtn = document.getElementById('download-cv-btn');
   if (!resumeBtn) return;
 
-  resumeBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    showToast('Resume profile loaded! You can also reach out directly via contact form.', 'success');
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  resumeBtn.addEventListener('click', () => {
+    showToast('Downloading Mani Meghana\'s Resume (PDF)...', 'success');
   });
 }

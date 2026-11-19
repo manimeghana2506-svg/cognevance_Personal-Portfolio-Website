@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background & Accent Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="50%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="avatar-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="skin-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+
+    <linearGradient id="hair-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="jacket-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312e81" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+
+    <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#4f46e5" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Circular Outer Glow & Base Ring -->
+  <circle cx="200" cy="200" r="185" fill="url(#bg-grad)" opacity="0.15" />
+  <circle cx="200" cy="200" r="172" fill="#0f172a" stroke="url(#bg-grad)" stroke-width="4" filter="url(#drop-shadow)" />
+
+  <!-- Background Decorative Shapes / Code Grid -->
+  <g opacity="0.12" stroke="#ffffff" stroke-width="1.5">
+    <circle cx="200" cy="200" r="140" stroke-dasharray="4 8" fill="none" />
+    <circle cx="200" cy="200" r="110" stroke-dasharray="2 6" fill="none" />
+    <line x1="200" y1="30" x2="200" y2="370" />
+    <line x1="30" y1="200" x2="370" y2="200" />
+  </g>
+
+  <!-- Avatar Character Illustration -->
+  <g id="character-illustration" transform="translate(0, 10)">
+    <!-- Back Hair Flow -->
+    <path d="M120 180 C110 250, 115 310, 140 330 C155 280, 150 220, 140 180 Z" fill="url(#hair-grad)" />
+    <path d="M280 180 C290 250, 285 310, 260 330 C245 280, 250 220, 260 180 Z" fill="url(#hair-grad)" />
+
+    <!-- Shoulders & Blazer -->
+    <path d="M110 360 C115 280, 150 260, 200 260 C250 260, 285 280, 290 360 Z" fill="url(#jacket-grad)" />
+    <path d="M170 265 L200 325 L230 265 Z" fill="#6366f1" />
+    <path d="M185 270 L200 305 L215 270 Z" fill="#ffffff" />
+
+    <!-- Neck -->
+    <rect x="184" y="215" width="32" height="52" rx="10" fill="#f59e0b" />
+    <path d="M184 225 C192 235, 208 235, 216 225 L216 238 C208 248, 192 248, 184 238 Z" fill="#d97706" opacity="0.4" />
+
+    <!-- Head & Face -->
+    <ellipse cx="200" cy="180" rx="55" ry="62" fill="#fbbf24" />
+
+    <!-- Cheeks Blush -->
+    <circle cx="168" cy="195" r="10" fill="#f43f5e" opacity="0.25" />
+    <circle cx="232" cy="195" r="10" fill="#f43f5e" opacity="0.25" />
+
+    <!-- Eyes (Friendly & Confident) -->
+    <ellipse cx="178" cy="178" rx="6" ry="8" fill="#1e1b4b" />
+    <ellipse cx="222" cy="178" rx="6" ry="8" fill="#1e1b4b" />
+    <circle cx="176" cy="175" r="2.5" fill="#ffffff" />
+    <circle cx="220" cy="175" r="2.5" fill="#ffffff" />
+
+    <!-- Eyebrows -->
+    <path d="M168 165 Q178 160 188 165" stroke="#1e1b4b" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M212 165 Q222 160 232 165" stroke="#1e1b4b" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Subtle Smile -->
+    <path d="M188 206 Q200 216 212 206" stroke="#b45309" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Hair Front / Style -->
+    <path d="M142 165 C140 110, 180 100, 200 100 C225 100, 260 110, 258 165 C250 140, 225 130, 200 132 C175 130, 150 140, 142 165 Z" fill="url(#hair-grad)" />
+    <!-- Hair Side Partings -->
+    <path d="M142 160 C140 185, 145 220, 152 235 C150 205, 148 180, 152 165 Z" fill="url(#hair-grad)" />
+    <path d="M258 160 C260 185, 255 220, 248 235 C250 205, 252 180, 248 165 Z" fill="url(#hair-grad)" />
+
+    <!-- Modern Tech Glasses / Developer Specs -->
+    <rect x="160" y="166" width="34" height="24" rx="7" fill="rgba(99, 102, 241, 0.15)" stroke="#6366f1" stroke-width="2.5" />
+    <rect x="206" y="166" width="34" height="24" rx="7" fill="rgba(99, 102, 241, 0.15)" stroke="#6366f1" stroke-width="2.5" />
+    <line x1="194" y1="176" x2="206" y2="176" stroke="#6366f1" stroke-width="2.5" />
+  </g>
+
+  <!-- Floating Tech Mini Badges around avatar -->
+  <g transform="translate(50, 80)">
+    <circle cx="20" cy="20" r="18" fill="#1e1b4b" stroke="#6366f1" stroke-width="2" />
+    <text x="20" y="25" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" fill="#38bdf8" text-anchor="middle">&lt;/&gt;</text>
+  </g>
+
+  <g transform="translate(310, 85)">
+    <circle cx="20" cy="20" r="18" fill="#1e1b4b" stroke="#7c3aed" stroke-width="2" />
+    <text x="20" y="25" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#a855f7" text-anchor="middle">⚡</text>
+  </g>
+
+  <g transform="translate(45, 280)">
+    <circle cx="20" cy="20" r="18" fill="#1e1b4b" stroke="#06b6d4" stroke-width="2" />
+    <text x="20" y="25" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" fill="#34d399" text-anchor="middle">C++</text>
+  </g>
+
+  <g transform="translate(315, 275)">
+    <circle cx="20" cy="20" r="18" fill="#1e1b4b" stroke="#f59e0b" stroke-width="2" />
+    <text x="20" y="25" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#fbbf24" text-anchor="middle">py</text>
+  </g>
+</svg>
